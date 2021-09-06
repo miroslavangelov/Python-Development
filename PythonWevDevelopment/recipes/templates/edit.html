@@ -1,0 +1,22 @@
+{% extends 'shared/main.html' %}
+{% block body %}
+<h1>Edit Recipe</h1>
+<div class="items-container">
+    <div class="item">
+        <form method="POST" action="{% url 'recipes_app:edit_recipe' recipe.id %}">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            {{ form.title }}
+            <label for="imageURL">Image URL</label>
+            {{ form.image_url }}
+            <label for="description">Description</label>
+            {{ form.description }}
+            <label for="ingredients">Ingredients</label>
+            {{ form.ingredients }}
+            <label for="time">Time (Minutes)</label>
+            {{ form.time }}
+            <input type="submit" class="button edit" value="Edit">
+        </form>
+    </div>
+</div>
+{% endblock %}
